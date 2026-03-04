@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Release"/>
+    <Units>
+      <Unit>
+        <Filename Value="bot.ppr"/>
+        <FRMtype Value="0"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="10"/>
+        <WindowIndex Value="0"/>
+        <CursorPos X="12" Y="24"/>
+        <UsageCount Value="203"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="long.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="7"/>
+        <WindowIndex Value="0"/>
+        <CursorPos X="87" Y="116"/>
+        <UsageCount Value="203"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="var_bot.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="11"/>
+        <WindowIndex Value="0"/>
+        <CursorPos X="24" Y="26"/>
+        <UsageCount Value="203"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="load_settings.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="9"/>
+        <WindowIndex Value="0"/>
+        <CursorPos X="6" Y="23"/>
+        <UsageCount Value="203"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="api_binance.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="2"/>
+        <WindowIndex Value="0"/>
+        <CursorPos X="6" Y="979"/>
+        <UsageCount Value="203"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="api_bybit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="3"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1008"/>
+        <CursorPos X="6" Y="1031"/>
+        <UsageCount Value="203"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="short.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="8"/>
+        <WindowIndex Value="0"/>
+        <CursorPos X="80" Y="116"/>
+        <UsageCount Value="203"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="api_binance_futures.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <CursorPos Y="357"/>
+        <UsageCount Value="203"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="api_bybit_futures.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="1"/>
+        <WindowIndex Value="0"/>
+        <CursorPos X="6" Y="1320"/>
+        <UsageCount Value="203"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="futuresls.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="futuresLS"/>
+        <EditorIndex Value="5"/>
+        <WindowIndex Value="0"/>
+        <CursorPos X="51" Y="157"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="futures.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="6"/>
+        <WindowIndex Value="0"/>
+        <CursorPos X="118" Y="250"/>
+        <UsageCount Value="175"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="futureshg.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="futuresHG"/>
+        <EditorIndex Value="4"/>
+        <WindowIndex Value="0"/>
+        <CursorPos X="54" Y="191"/>
+        <UsageCount Value="128"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="hack.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <CursorPos X="54" Y="4"/>
+        <UsageCount Value="200"/>
+      </Unit>
+      <Unit>
+        <Filename Value="futureshg2.pas"/>
+        <UnitName Value="futuresHG2"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="48"/>
+        <CursorPos X="9" Y="522"/>
+        <UsageCount Value="22"/>
+      </Unit>
+      <Unit>
+        <Filename Value="simplymm.pas"/>
+        <UnitName Value="SimplyMM"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <UsageCount Value="132"/>
+      </Unit>
+      <Unit>
+        <Filename Value="futures_shoot.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <CursorPos X="6" Y="37"/>
+        <UsageCount Value="197"/>
+      </Unit>
+      <Unit>
+        <Filename Value="futures_shootls.pas"/>
+        <FRMtype Value="0"/>
+        <UnitName Value="futures_shootLS"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <CursorPos X="58" Y="94"/>
+        <UsageCount Value="16"/>
+      </Unit>
+      <Unit>
+        <Filename Value="long_rsi_shoot.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <CursorPos X="21"/>
+        <UsageCount Value="16"/>
+      </Unit>
+      <Unit>
+        <Filename Value="websoket_price.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="32"/>
+        <CursorPos X="2" Y="41"/>
+        <UsageCount Value="16"/>
+      </Unit>
+      <Unit>
+        <Filename Value="api_gate.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <CursorPos X="7" Y="19"/>
+        <UsageCount Value="194"/>
+      </Unit>
+      <Unit>
+        <Filename Value="api_bingx_futures.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="13"/>
+        <CursorPos X="20" Y="14"/>
+        <UsageCount Value="97"/>
+      </Unit>
+      <Unit>
+        <Filename Value="api_commex.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="154"/>
+        <CursorPos X="21" Y="15"/>
+        <UsageCount Value="153"/>
+      </Unit>
+      <Unit>
+        <Filename Value="api_commex_futures.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <CursorPos X="21" Y="14"/>
+        <UsageCount Value="94"/>
+      </Unit>
+      <Unit>
+        <Filename Value="futures_v2.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <CursorPos X="32" Y="9"/>
+        <UsageCount Value="155"/>
+      </Unit>
+      <Unit>
+        <Filename Value="api_huobi.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="594"/>
+        <CursorPos X="3" Y="578"/>
+        <UsageCount Value="194"/>
+      </Unit>
+      <Unit>
+        <Filename Value="api_kucoin.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="507"/>
+        <CursorPos X="3" Y="480"/>
+        <UsageCount Value="194"/>
+      </Unit>
+      <Unit>
+        <Filename Value="api_ftx.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="679"/>
+        <CursorPos X="29" Y="692"/>
+        <UsageCount Value="194"/>
+      </Unit>
+      <Unit>
+        <Filename Value="binance_socket.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="5"/>
+        <CursorPos X="95" Y="46"/>
+        <UsageCount Value="154"/>
+      </Unit>
+      <Unit>
+        <Filename Value="tradingview.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <CursorPos X="7" Y="362"/>
+        <UsageCount Value="135"/>
+      </Unit>
+      <Unit>
+        <Filename Value="futuresn.pas"/>
+        <FRMtype Value="0"/>
+        <UnitName Value="futuresN"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="17"/>
+        <CursorPos X="5" Y="50"/>
+        <UsageCount Value="6"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\codetyphon\fpcsrc\packages\fcl-json\src\fpjson.pp"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1621"/>
+        <CursorPos X="3" Y="1636"/>
+        <UsageCount Value="4"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\codetyphon\fpcsrc\rtl\objpas\sysutils\sysstrh.inc"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="154"/>
+        <CursorPos X="10" Y="173"/>
+        <UsageCount Value="2"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\..\HomePC\Downloads\api_binance.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1542"/>
+        <CursorPos X="38" Y="1551"/>
+        <UsageCount Value="3"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\codetyphon\fpcsrc\packages\fcl-base\src\syncobjs.pp"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="165"/>
+        <CursorPos X="3" Y="168"/>
+        <UsageCount Value="3"/>
+      </Unit>
+      <Unit>
+        <Filename Value="cHash.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="2789"/>
+        <CursorPos X="5" Y="2813"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\codetyphon\fpcsrc\rtl\objpas\sysutils\syshelph.inc"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="68"/>
+        <CursorPos X="38" Y="84"/>
+        <UsageCount Value="3"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\codetyphon\fpcsrc\rtl\objpas\sysutils\syshelp.inc"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="313"/>
+        <CursorPos X="3" Y="315"/>
+        <UsageCount Value="3"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\codetyphon\fpcsrc\rtl\inc\objpash.inc"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="198"/>
+        <CursorPos X="21" Y="217"/>
+        <UsageCount Value="3"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\codetyphon\fpcsrc\rtl\inc\objpas.inc"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="358"/>
+        <CursorPos X="12" Y="334"/>
+        <UsageCount Value="3"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\codetyphon\typhon\components\pl_Synapse\source\httpsend.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="241"/>
+        <CursorPos X="27" Y="294"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\codetyphon\typhon\components\pl_Synapse\source\blcksock.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="889"/>
+        <CursorPos X="49" Y="259"/>
+        <UsageCount Value="4"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\codetyphon\typhon\components\packages_pl\pl_Synapse\source\ssl_openssl.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <UsageCount Value="4"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\codetyphon\typhon\components\synapse-master\ssl_openssl3.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="199"/>
+        <UsageCount Value="4"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\codetyphon\typhon\components\synapse-master\ssl_openssl3_lib.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="61"/>
+        <CursorPos X="22" Y="78"/>
+        <UsageCount Value="4"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\codetyphon\typhon\components\synapse-master\httpsend.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="285"/>
+        <CursorPos X="9" Y="311"/>
+        <UsageCount Value="4"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\codetyphon\fpcsrc\packages\rtl-objpas\src\inc\dateutil.inc"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="2400"/>
+        <CursorPos X="10" Y="2419"/>
+        <UsageCount Value="4"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\codetyphon\fpcsrc\packages\rtl-objpas\src\inc\dateutils.pp"/>
+        <FRMtype Value="0"/>
+        <UnitName Value="DateUtils"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <UsageCount Value="4"/>
+      </Unit>
+      <Unit>
+        <Filename Value="bot.ctpr"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="bot.ctps"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <UsageCount Value="5"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\Launcher\Automated_Binance_Bot.ctps"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\codetyphon\typhon\components\synapse-master\synamisc.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="591"/>
+        <CursorPos X="60" Y="621"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\codetyphon\CodeOcean\synapse-master\synamisc.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="602"/>
+        <CursorPos X="60" Y="621"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\codetyphon\typhon\components\packages_lz\lz_synapse\synamisc.pas"/>
+        <FRMtype Value="0"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="594"/>
+        <CursorPos X="49" Y="621"/>
+        <UsageCount Value="8"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="api_bybit_futures.pas"/>
+        <Caret Line="1004" Column="6" TopLine="981"/>
+      </Position>
+      <Position>
+        <Filename Value="api_bybit_futures.pas"/>
+        <Caret Line="1078" Column="6" TopLine="1055"/>
+      </Position>
+      <Position>
+        <Filename Value="api_bybit_futures.pas"/>
+        <Caret Line="1185" Column="6" TopLine="1162"/>
+      </Position>
+      <Position>
+        <Filename Value="api_bybit_futures.pas"/>
+        <Caret Line="1252" Column="6" TopLine="1229"/>
+      </Position>
+      <Position>
+        <Filename Value="api_binance.pas"/>
+        <Caret Line="18" Column="9"/>
+      </Position>
+      <Position>
+        <Filename Value="api_binance.pas"/>
+        <Caret Line="318" Column="6" TopLine="295"/>
+      </Position>
+      <Position>
+        <Filename Value="api_binance.pas"/>
+        <Caret Line="398" Column="6" TopLine="375"/>
+      </Position>
+      <Position>
+        <Filename Value="api_binance.pas"/>
+        <Caret Line="517" Column="6" TopLine="494"/>
+      </Position>
+      <Position>
+        <Filename Value="api_binance.pas"/>
+        <Caret Line="592" Column="6" TopLine="569"/>
+      </Position>
+      <Position>
+        <Filename Value="api_binance.pas"/>
+        <Caret Line="717" Column="6" TopLine="694"/>
+      </Position>
+      <Position>
+        <Filename Value="api_binance.pas"/>
+        <Caret Line="797" Column="6" TopLine="774"/>
+      </Position>
+      <Position>
+        <Filename Value="api_binance.pas"/>
+        <Caret Line="890" Column="6" TopLine="867"/>
+      </Position>
+      <Position>
+        <Filename Value="api_binance.pas"/>
+        <Caret Line="979" Column="6" TopLine="956"/>
+      </Position>
+      <Position>
+        <Filename Value="api_bybit.pas"/>
+        <Caret Line="350" Column="6" TopLine="327"/>
+      </Position>
+      <Position>
+        <Filename Value="api_bybit.pas"/>
+        <Caret Line="444" Column="6" TopLine="421"/>
+      </Position>
+      <Position>
+        <Filename Value="api_bybit.pas"/>
+        <Caret Line="566" Column="6" TopLine="543"/>
+      </Position>
+      <Position>
+        <Filename Value="api_bybit.pas"/>
+        <Caret Line="642" Column="6" TopLine="618"/>
+      </Position>
+      <Position>
+        <Filename Value="api_bybit.pas"/>
+        <Caret Line="770" Column="6" TopLine="747"/>
+      </Position>
+      <Position>
+        <Filename Value="api_bybit.pas"/>
+        <Caret Line="854" Column="6" TopLine="831"/>
+      </Position>
+      <Position>
+        <Filename Value="api_bybit.pas"/>
+        <Caret Line="932" Column="6" TopLine="909"/>
+      </Position>
+      <Position>
+        <Filename Value="var_bot.pas"/>
+        <Caret Line="26" Column="26"/>
+      </Position>
+      <Position>
+        <Filename Value="long.pas"/>
+        <Caret Line="116" Column="87" TopLine="92"/>
+      </Position>
+      <Position>
+        <Filename Value="short.pas"/>
+        <Caret Line="116" Column="80" TopLine="92"/>
+      </Position>
+      <Position>
+        <Filename Value="futures.pas"/>
+        <Caret Line="228" Column="84" TopLine="204"/>
+      </Position>
+      <Position>
+        <Filename Value="futures.pas"/>
+        <Caret Line="250" Column="118" TopLine="226"/>
+      </Position>
+      <Position>
+        <Filename Value="futuresls.pas"/>
+        <Caret Line="127" Column="83" TopLine="103"/>
+      </Position>
+      <Position>
+        <Filename Value="futuresls.pas"/>
+        <Caret Line="141" Column="50" TopLine="117"/>
+      </Position>
+      <Position>
+        <Filename Value="futuresls.pas"/>
+        <Caret Line="157" Column="51" TopLine="133"/>
+      </Position>
+      <Position>
+        <Filename Value="futureshg.pas"/>
+        <Caret Line="170" Column="53" TopLine="146"/>
+      </Position>
+      <Position>
+        <Filename Value="load_settings.pas"/>
+        <Caret Line="12" Column="10"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+  <Debugging>
+    <BreakPoints>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="futures_v2.pas"/>
+        <Line Value="167"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="futures_v2.pas"/>
+        <Line Value="138"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="api_bybit.pas"/>
+        <Line Value="135"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="api_binance.pas"/>
+        <Line Value="123"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="api_bybit_futures.pas"/>
+        <Line Value="972"/>
+      </Item>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="api_bybit_futures.pas"/>
+        <Line Value="962"/>
+      </Item>
+    </BreakPoints>
+  </Debugging>
+</CONFIG>

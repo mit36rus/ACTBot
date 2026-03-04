@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\codetyphon\fpc\fpc64\bin\x86_64-win64\fpc.exe" Date="1536408009"/>
+  <Params Value="-MObjFPC -Scghi -CX -O2 -gw2 -godwarfsets -gl -gh -XX -l -vewnhibq &quot;-FiC:\Users\Home PC\Documents\GitHub\ACTBot\bot.exe\lib\x86_64-win64&quot; &quot;-FuC:\Users\Home PC\Documents\GitHub\ACTBot\bot.exe\&quot; -FuC:\codetyphon\typhon\components\packages_lz\lz_synapse\lib\x86_64-win64 -FuC:\codetyphon\typhon\packager\units\x86_64-win64 &quot;-FUC:\Users\Home PC\Documents\GitHub\ACTBot\bot.exe\lib\x86_64-win64\&quot; &quot;-FEC:\Users\Home PC\Documents\GitHub\ACTBot\bot.exe\ACTBotRelaise\&quot; &quot;-oC:\Users\Home PC\Documents\GitHub\ACTBot\bot.exe\ACTBotRelaise\bot.exe&quot; bot.ppr"/>
+</CONFIG>

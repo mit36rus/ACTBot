@@ -1,0 +1,103 @@
+program bot;
+
+{$mode objfpc}{$H+}
+
+uses
+  {$IFDEF UNIX}
+  cthreads,
+  {$ENDIF}
+  Classes,
+  SysUtils,
+  Windows,
+  DateUtils,
+  CRT,
+  long,
+  var_bot,
+  load_settings,
+  api_binance,
+  api_bybit,
+  short,
+  futures,
+  api_binance_futures,
+  api_bybit_futures,
+  futuresLS,
+  futuresHG;
+
+  {$R *.res}
+
+begin
+  try
+    try
+      FS.DecimalSeparator := '.';
+      FS.ShortDateFormat := 'dd/mm/yyyy';
+      FS.DateSeparator := '/';
+      FS.LongTimeFormat := 'hh:nn:ss.zzz';
+      FS.TimeSeparator := ':';
+
+      VAL_1 := ParamStr(1);
+      VAL_2 := ParamStr(2);
+      EXCHANGE := ParamStr(3);
+      STRATEG := ParamStr(4);
+
+      OPEN_POSITION_ORDER := TStringList.Create;
+      CLOSE_POSITION_ORDER := TStringList.Create;
+      VAL_1_ORDERS := TStringList.Create;
+      VAL_2_ORDERS := TStringList.Create;
+      SL_ORDER_SHORT := TStringList.Create;
+
+      if (EXCHANGE = '') or (STRATEG = '') then
+        Exit
+      else
+      begin
+        TIME_FIRST_ORDER := GetTime;
+        LoadAPI;
+        LoadSettings;
+
+        if (EXCHANGE = 'BYBIT_F_LS') or (EXCHANGE = 'BINANCE_F_LS') or (EXCHANGE = 'BYBIT_F_HG') or (EXCHANGE = 'BINANCE_F_HG') then
+          H := CreateMutex(nil, True, PChar(VAL_1 + '-' + VAL_2 + ' ' + EXCHANGE))
+        else
+          H := CreateMutex(nil, True, PChar(VAL_1 + '-' + VAL_2 + ' ' + EXCHANGE + ' ' + STRATEG));
+
+        if GetLastError = ERROR_ALREADY_EXISTS then Halt;
+
+        if (EXCHANGE = 'BYBIT_F_LS') or (EXCHANGE = 'BINANCE_F_LS') or (EXCHANGE = 'BYBIT_F_HG') or (EXCHANGE = 'BINANCE_F_HG') then
+          SetConsoleTitle(PChar(VAL_1 + ' ' + VAL_2 + ' ' + EXCHANGE))
+        else
+          SetConsoleTitle(PChar(VAL_1 + ' ' + VAL_2 + ' ' + EXCHANGE + ' ' + STRATEG));
+
+        TextColor(11);
+        WriteLn('===============================================');
+        TextColor(10);
+        WriteLn(' Automated Crypto Trading Bot ');
+        TextColor(11);
+        WriteLn('===============================================');
+        TextColor(15);
+
+        case EXCHANGE of
+          'BINANCE_F': WorkFutures;
+          'BINANCE_F_LS': WorkFuturesLS;
+          'BINANCE_F_HG': WorkFuturesHG;
+          'BYBIT_F': WorkFutures;
+          'BYBIT_F_LS': WorkFuturesLS;
+          'BYBIT_F_HG': WorkFuturesHG;
+        end;
+
+        if (STRATEG = 'L') and ((EXCHANGE = 'BINANCE') or (EXCHANGE = 'BYBIT')) then WorkLong;
+        if (STRATEG = 'S') and ((EXCHANGE = 'BINANCE') or (EXCHANGE = 'BYBIT')) then WorkShort;
+      end;
+    except
+      on E: Exception do
+      begin
+        TextColor(12);
+        WriteLn(' ! ERROR > ' + E.Message + ' BOT FAILED contact me mit36rus@gmail.com');
+        TextColor(15);
+        ReadLn;
+      end;
+    end;
+  finally
+    FreeAndNil(OPEN_POSITION_ORDER);
+    FreeAndNil(CLOSE_POSITION_ORDER);
+    FreeAndNil(VAL_1_ORDERS);
+    FreeAndNil(VAL_2_ORDERS);
+  end;
+end.
