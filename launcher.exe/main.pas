@@ -19,6 +19,8 @@ type
     CB_XM: TCheckBox;
     CB_FIRST_RSI_ORDER: TCheckBox;
     Credit: TSpinEdit;
+    MenuItemReal: TMenuItem;
+    MenuItemDemo: TMenuItem;
     SE_LENGTH_RSI_HIGH: TSpinEdit;
     Strateg: TComboBox;
     LabelRsiOrders: TLabel;
@@ -32,10 +34,7 @@ type
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
-    MenuItem5: TMenuItem;
     MenuItemRemoveAll: TMenuItem;
-    MenuItemDonatMe: TMenuItem;
-    MenuItem7: TMenuItem;
     MenuItemHelp: TMenuItem;
     MenuRemoveLimit: TMenuItem;
     MenuItemFastStop: TMenuItem;
@@ -91,6 +90,7 @@ type
     TimerClear: TTimer;
     Val1: TEdit;
     Val2: TEdit;
+    procedure CB_FIRST_RSI_ORDERChange(Sender: TObject);
     procedure CB_XMMouseLeave(Sender: TObject);
     procedure ExchangeChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -116,13 +116,13 @@ type
     procedure LBSettingsDblClick(Sender: TObject);
     procedure L_RSI_OPEN_ORDER_LONGMouseLeave(Sender: TObject);
     procedure L_RSI_OPEN_ORDER_SHORTMouseLeave(Sender: TObject);
-    procedure MenuItemDonatMeClick(Sender: TObject);
+    procedure MenuItemDemoClick(Sender: TObject);
     procedure MenuItemFastStopClick(Sender: TObject);
     procedure MenuItemHelpClick(Sender: TObject);
+    procedure MenuItemRealClick(Sender: TObject);
     procedure MenuItemReloadClick(Sender: TObject);
     procedure MenuItemRemoveAllClick(Sender: TObject);
     procedure MenuItemRemoveClick(Sender: TObject);
-    procedure MenuItemScreenerTGClick(Sender: TObject);
     procedure MenuItemStartClick(Sender: TObject);
     procedure MenuItemStopClick(Sender: TObject);
     procedure MenuItemTelegramClick(Sender: TObject);
@@ -141,6 +141,7 @@ type
 var
   FormMain: TFormMain;
   fs: TFormatSettings;
+  demo: Boolean;
 
 implementation
 
@@ -268,6 +269,11 @@ begin
   ShowHint := True;
 end;
 
+procedure TFormMain.CB_FIRST_RSI_ORDERChange(Sender: TObject);
+begin
+
+end;
+
 procedure TFormMain.LBSettingsDblClick(Sender: TObject);
 var
   ini: TIniFile;
@@ -352,11 +358,71 @@ begin
   ShowHint := True;
 end;
 
-procedure TFormMain.MenuItemDonatMeClick(Sender: TObject);
+procedure TFormMain.MenuItemDemoClick(Sender: TObject);
+var
+  ini: TINIFile;
 begin
-  ShellExecute(Handle, 'open', 'https://yoomoney.ru/fundraise/1G9OL5QU7DI.260304', nil, nil, SW_NORMAL);
-  StatusBar.Panels[1].Text := 'https://yoomoney.ru/fundraise/1G9OL5QU7DI.260304';
+  if (Exchange.Text = 'BYBIT_F_LS') or (Exchange.Text = 'BINANCE_F_LS') or (Exchange.Text = 'BYBIT_F_HG') or (Exchange.Text = 'BINANCE_F_HG') then
+    ini := TINIFile.Create(extractfilepath(ParamStr(0)) + 'SETTINGS\' + Val1.Text + '_' + Val2.Text + '_' + Exchange.Text + '.ini')
+  else
+    ini := TINIFile.Create(extractfilepath(ParamStr(0)) + 'SETTINGS\' + Val1.Text + '_' + Val2.Text + '_' + Exchange.Text + '_' + Strateg.Text + '.ini');
+
+  ini.WriteInteger('SETTINGS', 'OPEN_ORDERS', OpenOrders.Value);
+  ini.WriteString('SETTINGS', 'FIRST_STEP', FloatToStr(FirstStep.Value, fs));
+  ini.WriteString('SETTINGS', 'ORDERS_STEP', FloatToStr(OrdersStep.Value, fs));
+  ini.WriteString('SETTINGS', 'RATIO', FloatToStr(RATIO.Value, fs));
+  ini.WriteString('SETTINGS', 'RELOAD_ORDERS', FloatToStr(ReloadOrders.Value, fs));
+  ini.WriteString('SETTINGS', 'DEPOSIT_ORDER', FloatToStr(DepositOrder.Value, fs));
+  ini.WriteString('SETTINGS', 'MARTINGALE', FloatToStr(Martingale.Value, fs));
+  ini.WriteString('SETTINGS', 'DEPOSIT_LIMIT', FloatToStr(DepositLimit.Value, fs));
+  ini.WriteString('SETTINGS', 'PROFIT', FloatToStr(Profit.Value, fs));
+  ini.WriteString('SETTINGS', 'STOPLOSS', FloatToStr(Stoploss.Value, fs));
+  ini.WriteBool('SETTINGS', 'X2', CB_XM.Checked);
+
+  ini.WriteString('PAIR', 'ONE', Val1.Text);
+  ini.WriteString('PAIR', 'TWO', Val2.Text);
+
+  ini.WriteString('PAIR', 'EXCHANGE', Exchange.Text);
+  ini.WriteString('PAIR', 'STRATEG', Strateg.Text);
+
+  ini.WriteBool('RSI', 'FIRST_RSI_ORDER', CB_FIRST_RSI_ORDER.Checked);
+  ini.WriteBool('RSI', 'NEXT_ORDER_RSI', CB_NEXT_ORDER_RSI.Checked);
+  ini.WriteInteger('RSI', 'LENGTH_RSI_LOW', SE_LENGTH_RSI_LOW.Value);
+  ini.WriteInteger('RSI', 'LENGTH_RSI_HIGH', SE_LENGTH_RSI_HIGH.Value);
+  ini.WriteString('RSI', 'DATA_FOR_RSI', CB_DATA_FOR_RSI.Text);
+  ini.WriteString('RSI', 'CB_TIME_FRAME', CB_TIME_FRAME.Text);
+  ini.WriteInteger('RSI', 'RSI_OPEN_LONG', RSI_LONG_OPEN.Value);
+  ini.WriteInteger('RSI', 'RSI_OPEN_SHORT', RSI_SHORT_OPEN.Value);
+
+  ini.WriteInteger('MARGIN SETTINGS', 'CREDIT', Credit.Value);
+  ini.WriteString('MARGIN SETTINGS', 'POSITION_MODE', POSITION_MODE.Text);
+  ini.WriteInteger('TIMEOUT SETTINGS', 'HTTP_TIMEOUT', HTTP_TIMEOUT.Value);
+
+  ini.WriteInteger('BOT', 'STOP', 0);
+  ini.WriteInteger('BOT', 'FASTSTOP', 0);
+  ini.WriteInteger('BOT', 'DEMO', 1);
+
+  ini.Free;
+  RefreshSettingsFolder;
+
+  MenuItemStop.Default := False;
+  MenuItemFastStop.Default := False;
+
+  ShellExecute(Handle, 'Open', 'bot.exe',
+    PChar(Val1.Text + ' ' + Val2.Text + ' ' + Exchange.Text + ' ' + Strateg.Text), nil, 1);
+
+  StatusBar.Panels[1].Text := 'Run new consol : ' + Val1.Text + '/' + Val2.Text;
   TimerClear.Enabled := True;
+
+  if (Exchange.Text = 'BINANCE_F_LS') or (Exchange.Text = 'BYBIT_F_LS') or (Exchange.Text = 'BYBIT_F_HG') or (Exchange.Text = 'BINANCE_F_HG') then
+    Strateg.Enabled := False
+  else
+    Strateg.Enabled := True;
+
+  if (Exchange.Text = 'BINANCE_F_HG') or (Exchange.Text = 'BYBIT_F_HG') then
+    LabelStoploss.Caption := 'HEDG ORDER START'
+  else
+    LabelStoploss.Caption := 'STOPLOSS';
 end;
 
 procedure TFormMain.MenuItemFastStopClick(Sender: TObject);
@@ -385,6 +451,73 @@ begin
   ShellExecute(Handle, 'open', 'help.txt', nil, nil, SW_NORMAL);
   StatusBar.Panels[1].Text := 'Open file  help.txt';
   TimerClear.Enabled := True;
+end;
+
+procedure TFormMain.MenuItemRealClick(Sender: TObject);
+var
+  ini: TINIFile;
+begin
+  if (Exchange.Text = 'BYBIT_F_LS') or (Exchange.Text = 'BINANCE_F_LS') or (Exchange.Text = 'BYBIT_F_HG') or (Exchange.Text = 'BINANCE_F_HG') then
+    ini := TINIFile.Create(extractfilepath(ParamStr(0)) + 'SETTINGS\' + Val1.Text + '_' + Val2.Text + '_' + Exchange.Text + '.ini')
+  else
+    ini := TINIFile.Create(extractfilepath(ParamStr(0)) + 'SETTINGS\' + Val1.Text + '_' + Val2.Text + '_' + Exchange.Text + '_' + Strateg.Text + '.ini');
+
+  ini.WriteInteger('SETTINGS', 'OPEN_ORDERS', OpenOrders.Value);
+  ini.WriteString('SETTINGS', 'FIRST_STEP', FloatToStr(FirstStep.Value, fs));
+  ini.WriteString('SETTINGS', 'ORDERS_STEP', FloatToStr(OrdersStep.Value, fs));
+  ini.WriteString('SETTINGS', 'RATIO', FloatToStr(RATIO.Value, fs));
+  ini.WriteString('SETTINGS', 'RELOAD_ORDERS', FloatToStr(ReloadOrders.Value, fs));
+  ini.WriteString('SETTINGS', 'DEPOSIT_ORDER', FloatToStr(DepositOrder.Value, fs));
+  ini.WriteString('SETTINGS', 'MARTINGALE', FloatToStr(Martingale.Value, fs));
+  ini.WriteString('SETTINGS', 'DEPOSIT_LIMIT', FloatToStr(DepositLimit.Value, fs));
+  ini.WriteString('SETTINGS', 'PROFIT', FloatToStr(Profit.Value, fs));
+  ini.WriteString('SETTINGS', 'STOPLOSS', FloatToStr(Stoploss.Value, fs));
+  ini.WriteBool('SETTINGS', 'X2', CB_XM.Checked);
+
+  ini.WriteString('PAIR', 'ONE', Val1.Text);
+  ini.WriteString('PAIR', 'TWO', Val2.Text);
+
+  ini.WriteString('PAIR', 'EXCHANGE', Exchange.Text);
+  ini.WriteString('PAIR', 'STRATEG', Strateg.Text);
+
+  ini.WriteBool('RSI', 'FIRST_RSI_ORDER', CB_FIRST_RSI_ORDER.Checked);
+  ini.WriteBool('RSI', 'NEXT_ORDER_RSI', CB_NEXT_ORDER_RSI.Checked);
+  ini.WriteInteger('RSI', 'LENGTH_RSI_LOW', SE_LENGTH_RSI_LOW.Value);
+  ini.WriteInteger('RSI', 'LENGTH_RSI_HIGH', SE_LENGTH_RSI_HIGH.Value);
+  ini.WriteString('RSI', 'DATA_FOR_RSI', CB_DATA_FOR_RSI.Text);
+  ini.WriteString('RSI', 'CB_TIME_FRAME', CB_TIME_FRAME.Text);
+  ini.WriteInteger('RSI', 'RSI_OPEN_LONG', RSI_LONG_OPEN.Value);
+  ini.WriteInteger('RSI', 'RSI_OPEN_SHORT', RSI_SHORT_OPEN.Value);
+
+  ini.WriteInteger('MARGIN SETTINGS', 'CREDIT', Credit.Value);
+  ini.WriteString('MARGIN SETTINGS', 'POSITION_MODE', POSITION_MODE.Text);
+  ini.WriteInteger('TIMEOUT SETTINGS', 'HTTP_TIMEOUT', HTTP_TIMEOUT.Value);
+
+  ini.WriteInteger('BOT', 'STOP', 0);
+  ini.WriteInteger('BOT', 'FASTSTOP', 0);
+  ini.WriteInteger('BOT', 'DEMO', 0);
+
+  ini.Free;
+  RefreshSettingsFolder;
+
+  MenuItemStop.Default := False;
+  MenuItemFastStop.Default := False;
+
+  ShellExecute(Handle, 'Open', 'bot.exe',
+    PChar(Val1.Text + ' ' + Val2.Text + ' ' + Exchange.Text + ' ' + Strateg.Text), nil, 1);
+
+  StatusBar.Panels[1].Text := 'Run new consol : ' + Val1.Text + '/' + Val2.Text;
+  TimerClear.Enabled := True;
+
+  if (Exchange.Text = 'BINANCE_F_LS') or (Exchange.Text = 'BYBIT_F_LS') or (Exchange.Text = 'BYBIT_F_HG') or (Exchange.Text = 'BINANCE_F_HG') then
+    Strateg.Enabled := False
+  else
+    Strateg.Enabled := True;
+
+  if (Exchange.Text = 'BINANCE_F_HG') or (Exchange.Text = 'BYBIT_F_HG') then
+    LabelStoploss.Caption := 'HEDG ORDER START'
+  else
+    LabelStoploss.Caption := 'STOPLOSS';
 end;
 
 procedure TFormMain.MenuItemReloadClick(Sender: TObject);
@@ -475,76 +608,11 @@ begin
   end;
 end;
 
-procedure TFormMain.MenuItemScreenerTGClick(Sender: TObject);
-begin
-
-end;
-
 procedure TFormMain.MenuItemStartClick(Sender: TObject);
-var
-  ini: TINIFile;
 begin
-  if (Exchange.Text = 'BYBIT_F_LS') or (Exchange.Text = 'BINANCE_F_LS') or (Exchange.Text = 'BYBIT_F_HG') or (Exchange.Text = 'BINANCE_F_HG') then
-    ini := TINIFile.Create(extractfilepath(ParamStr(0)) + 'SETTINGS\' + Val1.Text + '_' + Val2.Text + '_' + Exchange.Text + '.ini')
-  else
-    ini := TINIFile.Create(extractfilepath(ParamStr(0)) + 'SETTINGS\' + Val1.Text + '_' + Val2.Text + '_' + Exchange.Text + '_' + Strateg.Text + '.ini');
 
-  ini.WriteInteger('SETTINGS', 'OPEN_ORDERS', OpenOrders.Value);
-  ini.WriteString('SETTINGS', 'FIRST_STEP', FloatToStr(FirstStep.Value, fs));
-  ini.WriteString('SETTINGS', 'ORDERS_STEP', FloatToStr(OrdersStep.Value, fs));
-  ini.WriteString('SETTINGS', 'RATIO', FloatToStr(RATIO.Value, fs));
-  ini.WriteString('SETTINGS', 'RELOAD_ORDERS', FloatToStr(ReloadOrders.Value, fs));
-  ini.WriteString('SETTINGS', 'DEPOSIT_ORDER', FloatToStr(DepositOrder.Value, fs));
-  ini.WriteString('SETTINGS', 'MARTINGALE', FloatToStr(Martingale.Value, fs));
-  ini.WriteString('SETTINGS', 'DEPOSIT_LIMIT', FloatToStr(DepositLimit.Value, fs));
-  ini.WriteString('SETTINGS', 'PROFIT', FloatToStr(Profit.Value, fs));
-  ini.WriteString('SETTINGS', 'STOPLOSS', FloatToStr(Stoploss.Value, fs));
-  ini.WriteBool('SETTINGS', 'X2', CB_XM.Checked);
-
-  ini.WriteString('PAIR', 'ONE', Val1.Text);
-  ini.WriteString('PAIR', 'TWO', Val2.Text);
-
-  ini.WriteString('PAIR', 'EXCHANGE', Exchange.Text);
-  ini.WriteString('PAIR', 'STRATEG', Strateg.Text);
-
-  ini.WriteBool('RSI', 'FIRST_RSI_ORDER', CB_FIRST_RSI_ORDER.Checked);
-  ini.WriteBool('RSI', 'NEXT_ORDER_RSI', CB_NEXT_ORDER_RSI.Checked);
-  ini.WriteInteger('RSI', 'LENGTH_RSI_LOW', SE_LENGTH_RSI_LOW.Value);
-  ini.WriteInteger('RSI', 'LENGTH_RSI_HIGH', SE_LENGTH_RSI_HIGH.Value);
-  ini.WriteString('RSI', 'DATA_FOR_RSI', CB_DATA_FOR_RSI.Text);
-  ini.WriteString('RSI', 'CB_TIME_FRAME', CB_TIME_FRAME.Text);
-  ini.WriteInteger('RSI', 'RSI_OPEN_LONG', RSI_LONG_OPEN.Value);
-  ini.WriteInteger('RSI', 'RSI_OPEN_SHORT', RSI_SHORT_OPEN.Value);
-
-  ini.WriteInteger('MARGIN SETTINGS', 'CREDIT', Credit.Value);
-  ini.WriteString('MARGIN SETTINGS', 'POSITION_MODE', POSITION_MODE.Text);
-  ini.WriteInteger('TIMEOUT SETTINGS', 'HTTP_TIMEOUT', HTTP_TIMEOUT.Value);
-
-  ini.WriteInteger('BOT', 'STOP', 0);
-  ini.WriteInteger('BOT', 'FASTSTOP', 0);
-
-  ini.Free;
-  RefreshSettingsFolder;
-
-  MenuItemStop.Default := False;
-  MenuItemFastStop.Default := False;
-
-  ShellExecute(Handle, 'Open', 'bot.exe',
-    PChar(Val1.Text + ' ' + Val2.Text + ' ' + Exchange.Text + ' ' + Strateg.Text), nil, 1);
-
-  StatusBar.Panels[1].Text := 'Run new consol : ' + Val1.Text + '/' + Val2.Text;
-  TimerClear.Enabled := True;
-
-  if (Exchange.Text = 'BINANCE_F_LS') or (Exchange.Text = 'BYBIT_F_LS') or (Exchange.Text = 'BYBIT_F_HG') or (Exchange.Text = 'BINANCE_F_HG') then
-    Strateg.Enabled := False
-  else
-    Strateg.Enabled := True;
-
-  if (Exchange.Text = 'BINANCE_F_HG') or (Exchange.Text = 'BYBIT_F_HG') then
-    LabelStoploss.Caption := 'HEDG ORDER START'
-  else
-    LabelStoploss.Caption := 'STOPLOSS';
 end;
+
 
 procedure TFormMain.MenuItemStopClick(Sender: TObject);
 var
