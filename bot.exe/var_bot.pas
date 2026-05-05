@@ -148,8 +148,10 @@ var
 
   POSITION_MODE: string;
 
-  //url_bybit : String = 'https://api-demo.bybit.com';
-  url_bybit: string = 'https://api.bybit.com';
+  DEMO: Boolean;
+  url_bybit: String;
+  url_binance: String;
+
   PNL_PERCENT_LONG: double;
   PNL_PERCENT_SHORT: double;
   PRICE_SHORT_STOP: double;

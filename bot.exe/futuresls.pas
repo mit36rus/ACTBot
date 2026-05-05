@@ -101,6 +101,25 @@ begin
         until GetPositionLSBybit;
     end;
 
+    if (PNL_SUM_PERCENT > (POSITION_VOLUME_LONG + POSITION_VOLUME_SHORT) * PROFIT / 100) then
+    begin
+      TextColor(14);
+      WriteLn(' UNREALIZEDPROFIT > SET PROFIT >>> CLOSE POSITIONS');
+
+      WriteLn(' CLOSE LONG >>>');
+      STRATEG := 'L';
+      case EXCHANGE of
+        'BINANCE_F_LS': CreateOrderBinanceFutures('LONG', 'SELL', 'MARKET', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_LONG, fs), '0');
+        'BYBIT_F_LS': CreateOrderBybitFutures('true', 'Sell', 'Market', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_LONG, fs), '0');
+      end;
+      WriteLn(' CLOSE SHORT >>>');
+      STRATEG := 'S';
+      case EXCHANGE of
+        'BINANCE_F_LS': CreateOrderBinanceFutures('SHORT', 'BUY', 'MARKET', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_SHORT, fs), '0');
+        'BYBIT_F_LS': CreateOrderBybitFutures('true', 'Buy', 'Market', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_SHORT, fs), '0');
+      end;
+    end;
+
     // close position
     if ((PNL_LONG > 0) and (SHOOT_SHORT = True)) then
     begin
@@ -180,18 +199,18 @@ begin
     WriteLn('');
     TextColor(2);
     WriteLn(' > PNL LONG : ' + FloatToStr(PNL_LONG, fs));
-    WriteLn(' > MINIMUM PNL LONG: ' + FloatToStr(POSITION_VOLUME_LONG * PROFIT / 100, fs));
     WriteLn(' POSITION VOLUME LONG: ' + FloatToStr(POSITION_VOLUME_LONG, fs));
     WriteLn(' POSITION NATIONAL LONG: ' + FloatToStr(POSITION_NATIONAL_LONG, fs));
-    WriteLn(' + NEXT LONG ORDER MIN PRICE: ' + FloatToStr(PRICE_ORDER_LONG, fs));
+    WriteLn(' + NEXT LONG ORDER MIN ASKS PRICE: ' + FloatToStr(PRICE_ORDER_LONG, fs));
     WriteLn('');
     TextColor(4);
     WriteLn(' > PNL SHORT : ' + FloatToStr(PNL_SHORT, fs));
-    WriteLn(' > MINIMUM PNL SHORT: ' + FloatToStr(POSITION_VOLUME_SHORT * PROFIT / 100, fs));
     WriteLn(' POSITION VOLUME SHORT: ' + FloatToStr(POSITION_VOLUME_SHORT, fs));
     WriteLn(' POSITION NATIONAL SHORT: ' + FloatToStr(POSITION_NATIONAL_SHORT, fs));
-    WriteLn(' + NEXT SHORT ORDER MIN PRICE: ' + FloatToStr(PRICE_ORDER_SHORT, fs));
+    WriteLn(' + NEXT SHORT ORDER MIN BIDS PRICE: ' + FloatToStr(PRICE_ORDER_SHORT, fs));
     TextColor(15);
+    WriteLn('');
+    WriteLn(' > UNREALIZEDPROFIT : ' + FloatToStr(PNL_SUM_PERCENT, fs));
     WriteLn('-----------------------------------------------');
     Writeln('');
     //==============

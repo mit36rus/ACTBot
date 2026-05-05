@@ -25,11 +25,23 @@ begin
     try
       ini := TINIFile.Create('API.ini');
 
-      KEY_BINANCE := ini.ReadString('API_KEY', 'KEY_BINANCE', '');
-      KEY_BYBIT := ini.ReadString('API_KEY', 'KEY_BYBIT', '');
+      if DEMO then
+      begin
+        KEY_BINANCE := ini.ReadString('DEMO_API_KEY', 'KEY_BINANCE', '');
+        KEY_BYBIT := ini.ReadString('DEMO_API_KEY', 'KEY_BYBIT', '');
 
-      SECRET_BINANCE := ini.ReadString('API_SECRET', 'SECRET_BINANCE', '');
-      SECRET_BYBIT := ini.ReadString('API_SECRET', 'SECRET_BYBIT', '');
+        SECRET_BINANCE := ini.ReadString('DEMO_API_SECRET', 'SECRET_BINANCE', '');
+        SECRET_BYBIT := ini.ReadString('DEMO_API_SECRET', 'SECRET_BYBIT', '');
+      end
+      else
+      begin
+        KEY_BINANCE := ini.ReadString('API_KEY', 'KEY_BINANCE', '');
+        KEY_BYBIT := ini.ReadString('API_KEY', 'KEY_BYBIT', '');
+
+        SECRET_BINANCE := ini.ReadString('API_SECRET', 'SECRET_BINANCE', '');
+        SECRET_BYBIT := ini.ReadString('API_SECRET', 'SECRET_BYBIT', '');
+      end;
+
     except
       on E: Exception do
       begin
@@ -82,6 +94,7 @@ begin
 
       STOP := ini.ReadInteger('BOT', 'STOP', STOP);
       FASTSTOP := ini.ReadInteger('BOT', 'FASTSTOP', 0);
+      DEMO := ini.ReadBool('BOT', 'DEMO', DEMO);
       if FASTSTOP = 1 then STOP := 1;
 
       TIME_FIRST_ORDER := ini.ReadInt64('SAVE', 'TIME_FIRST_ORDER', TIME_FIRST_ORDER);

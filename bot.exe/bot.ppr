@@ -65,6 +65,17 @@ begin
         else
           SetConsoleTitle(PChar(VAL_1 + ' ' + VAL_2 + ' ' + EXCHANGE + ' ' + STRATEG));
 
+        if DEMO then
+        begin
+          url_bybit := 'https://api-demo.bybit.com';
+          url_binance := 'https://demo-fapi.binance.com';
+        end
+        else
+        begin
+          url_bybit := 'https://api.bybit.com';
+          url_binance := 'https://fapi.binance.com';
+        end;
+
         TextColor(11);
         WriteLn('===============================================');
         TextColor(10);

@@ -67,7 +67,7 @@ begin
       http.Document.LoadFromStream(post);
 
 
-      if (http.HTTPMethod('POST', 'https://fapi.binance.com/fapi/v1/leverage?signature=' + hash)) and (http.ResultCode = 200) then
+      if (http.HTTPMethod('POST', url_binance + '/fapi/v1/leverage?signature=' + hash)) and (http.ResultCode = 200) then
       begin
         http.Document.SaveToStream(responce);
         jD := GetJSON(responce.DataString);
@@ -127,7 +127,7 @@ begin
       http.Headers.Add('X-MBX-APIKEY: ' + GetKey);
       http.Document.LoadFromStream(post);
 
-      if (http.HTTPMethod('POST', 'https://fapi.binance.com/fapi/v1/positionSide/dual?signature=' + hash)) and (http.ResultCode = 200) then
+      if (http.HTTPMethod('POST', url_binance + '/fapi/v1/positionSide/dual?signature=' + hash)) and (http.ResultCode = 200) then
       begin
         http.Document.SaveToStream(responce);
         jD := GetJSON(responce.DataString);
@@ -183,7 +183,7 @@ begin
       http.Headers.Add('X-MBX-APIKEY: ' + GetKey);
       http.Document.LoadFromStream(post);
 
-      if (http.HTTPMethod('POST', 'https://fapi.binance.com/fapi/v1/marginType?signature=' + hash)) and (http.ResultCode = 200) then
+      if (http.HTTPMethod('POST', url_binance + '/fapi/v1/marginType?signature=' + hash)) and (http.ResultCode = 200) then
       begin
         http.Document.SaveToStream(responce);
         jD := GetJSON(responce.DataString);
@@ -228,7 +228,7 @@ begin
       http.KeepAlive := True;
       http.UserAgent := 'ACTBot/MIT';
 
-      if (http.HTTPMethod('GET', 'https://fapi.binance.com/fapi/v1/ticker/bookTicker?symbol=' + val_2 + val_1)) and (http.ResultCode = 200) then
+      if (http.HTTPMethod('GET', url_binance + '/fapi/v1/ticker/bookTicker?symbol=' + val_2 + val_1)) and (http.ResultCode = 200) then
       begin
         http.Document.SaveToStream(responce);
         jD := GetJSON(responce.DataString);
@@ -291,7 +291,7 @@ begin
 
       http.Headers.Add('X-MBX-APIKEY: ' + GetKey);
 
-      if (http.HTTPMethod('GET', 'https://fapi.binance.com/fapi/v2/balance?timestamp=' + IntToStr(GetTime) + '&signature=' + hash)) and (http.ResultCode = 200) then
+      if (http.HTTPMethod('GET', url_binance + '/fapi/v2/balance?timestamp=' + IntToStr(GetTime) + '&signature=' + hash)) and (http.ResultCode = 200) then
       begin
         http.Document.SaveToStream(responce);
         jD := GetJSON(responce.DataString);
@@ -349,7 +349,7 @@ begin
 
       http.Headers.Add('X-MBX-APIKEY: ' + GetKey);
 
-      if (http.HTTPMethod('GET', 'https://fapi.binance.com/fapi/v1/openOrders?' + url + '&signature=' + hash)) and (http.ResultCode = 200) then
+      if (http.HTTPMethod('GET', url_binance + '/fapi/v1/openOrders?' + url + '&signature=' + hash)) and (http.ResultCode = 200) then
       begin
         http.Document.SaveToStream(responce);
         OPEN_POSITION_ORDER.Clear;
@@ -491,7 +491,7 @@ begin
       http.UserAgent := 'ACTBot/MIT';
       http.MimeType := 'application/x-www-form-urlencoded';
 
-      if (http.HTTPMethod('GET', 'https://fapi.binance.com/fapi/v1/exchangeInfo')) and (http.ResultCode = 200) then
+      if (http.HTTPMethod('GET', url_binance + '/fapi/v1/exchangeInfo')) and (http.ResultCode = 200) then
       begin
         http.Document.SaveToStream(responce);
         jD := GetJSON(responce.DataString);
@@ -518,10 +518,10 @@ begin
               end;
             end;
 
-            DEC_MIN_VAL_1 := jD4.FindPath('[6].multiplierDecimal').AsInteger;
+            DEC_MIN_VAL_1 := jD4.FindPath('[5].multiplierDecimal').AsInteger;
             DEC_MIN_VAL_2 := jD3.FindPath('quantityPrecision').AsInteger;
             QTY_STEP := jD4.FindPath('[1].stepSize').AsFloat;
-            MIN_VAL_1 := jD4.FindPath('[5].notional').AsFloat;
+            MIN_VAL_1 := jD4.FindPath('[4].notional').AsFloat;
             MIN_VAL_2 := jD4.FindPath('[1].minQty').AsFloat;
 
             FreeAndNil(jD4);
@@ -580,7 +580,7 @@ begin
 
       http.Headers.Add('X-MBX-APIKEY: ' + GetKey);
 
-      if (http.HTTPMethod('GET', 'https://fapi.binance.com/fapi/v2/positionRisk?' + url + '&signature=' + hash)) and (http.ResultCode = 200) then
+      if (http.HTTPMethod('GET', url_binance + '/fapi/v2/positionRisk?' + url + '&signature=' + hash)) and (http.ResultCode = 200) then
       begin
         http.Document.SaveToStream(responce);
         jD := GetJSON(responce.DataString);
@@ -676,7 +676,7 @@ begin
 
       http.Headers.Add('X-MBX-APIKEY: ' + GetKey);
 
-      if (http.HTTPMethod('GET', 'https://fapi.binance.com/fapi/v2/positionRisk?' + url + '&signature=' + hash)) and (http.ResultCode = 200) then
+      if (http.HTTPMethod('GET', url_binance + '/fapi/v2/positionRisk?' + url + '&signature=' + hash)) and (http.ResultCode = 200) then
       begin
         http.Document.SaveToStream(responce);
         jD := GetJSON(responce.DataString);
@@ -711,8 +711,10 @@ begin
         end;
 
 
-        if (((PNL_LONG <> 0) or (PNL_SHORT <> 0)) and (POSITION_VOLUME_LONG <> 0)) then
-          PNL_SUM_PERCENT := ((PNL_LONG + PNL_SHORT) / POSITION_VOLUME_LONG) * 100 * CREDIT;
+        //if (((PNL_LONG <> 0) or (PNL_SHORT <> 0)) and (POSITION_VOLUME_LONG <> 0)) then
+        //  PNL_SUM_PERCENT := ((PNL_LONG + PNL_SHORT) / POSITION_VOLUME_LONG) * 100 * CREDIT;
+
+        PNL_SUM_PERCENT := (PNL_LONG + PNL_SHORT);
 
         FreeAndNil(jD);
       end;
@@ -763,7 +765,7 @@ begin
       http.KeepAlive := True;
       http.UserAgent := 'ACTBot/MIT';
 
-      if (http.HTTPMethod('GET', 'https://fapi.binance.com/fapi/v1/klines?symbol=' + val_2 + val_1 + '&limit=50&interval=' + time_bar)) and (http.ResultCode = 200) then
+      if (http.HTTPMethod('GET', url_binance + '/fapi/v1/klines?symbol=' + val_2 + val_1 + '&limit=50&interval=' + time_bar)) and (http.ResultCode = 200) then
       begin
         http.Document.SaveToStream(responce);
         jD := GetJSON(responce.DataString);
@@ -914,7 +916,7 @@ begin
       http.Headers.Add('X-MBX-APIKEY: ' + GetKey);
       http.Document.LoadFromStream(post);
 
-      if (http.HTTPMethod('POST', 'https://fapi.binance.com/fapi/v1/order?signature=' + hash)) and (http.ResultCode = 200) then
+      if (http.HTTPMethod('POST', url_binance + '/fapi/v1/order?signature=' + hash)) and (http.ResultCode = 200) then
       begin
         http.Document.SaveToStream(responce);
         jD := GetJSON(responce.DataString);
@@ -970,7 +972,7 @@ begin
       http.Headers.Add('X-MBX-APIKEY: ' + GetKey);
       http.Document.LoadFromStream(post);
 
-      if (http.HTTPMethod('DELETE', 'https://fapi.binance.com/fapi/v1/order?signature=' + hash)) and (http.ResultCode = 200) then
+      if (http.HTTPMethod('DELETE', url_binance + '/fapi/v1/order?signature=' + hash)) and (http.ResultCode = 200) then
       begin
         http.Document.SaveToStream(responce);
         jD := GetJSON(responce.DataString);
@@ -1044,7 +1046,7 @@ begin
 
       http.Headers.Add('X-MBX-APIKEY: ' + GetKey);
 
-      if (http.HTTPMethod('GET', 'https://fapi.binance.com/fapi/v1/order?' + url + '&signature=' + hash)) and (http.ResultCode = 200) then
+      if (http.HTTPMethod('GET', url_binance + '/fapi/v1/order?' + url + '&signature=' + hash)) and (http.ResultCode = 200) then
       begin
         http.Document.SaveToStream(responce);
         jD := GetJSON(responce.DataString);
@@ -1104,7 +1106,7 @@ begin
 
       http.Headers.Add('X-MBX-APIKEY: ' + GetKey);
 
-      if (http.HTTPMethod('GET', 'https://fapi.binance.com/fapi/v1/userTrades?' + url + '&signature=' + hash)) and (http.ResultCode = 200) then
+      if (http.HTTPMethod('GET', url_binance + '/fapi/v1/userTrades?' + url + '&signature=' + hash)) and (http.ResultCode = 200) then
       begin
         http.Document.SaveToStream(responce);
         jD := GetJSON(responce.DataString);
@@ -1236,7 +1238,7 @@ begin
       http.Headers.Add('X-MBX-APIKEY: ' + GetKey);
       http.Document.LoadFromStream(post);
 
-      if (http.HTTPMethod('DELETE', 'https://fapi.binance.com/fapi/v1/allOpenOrders?signature=' + hash)) and (http.ResultCode = 200) then
+      if (http.HTTPMethod('DELETE', url_binance + '/fapi/v1/allOpenOrders?signature=' + hash)) and (http.ResultCode = 200) then
       begin
         http.Document.SaveToStream(responce);
         jD := GetJSON(responce.DataString);
