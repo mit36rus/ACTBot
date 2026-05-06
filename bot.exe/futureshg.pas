@@ -177,7 +177,7 @@ begin
       end;
 
       // Bot Stoped
-      if ((STOP = 1) and (POSITION_VOLUME_LONG = 0)) then
+      if ((STOP = 1) and (POSITION_VOLUME_LONG = 0) and (POSITION_VOLUME_SHORT = 0)) then
       begin
         TextColor(4);
         WriteLn('');

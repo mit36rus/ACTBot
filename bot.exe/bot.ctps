@@ -102,7 +102,7 @@
         <UnitName Value="futuresLS"/>
         <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="92"/>
+        <TopLine Value="109"/>
         <CursorPos Y="104"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
@@ -124,8 +124,8 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="97"/>
-        <CursorPos X="184" Y="131"/>
+        <TopLine Value="164"/>
+        <CursorPos X="79" Y="180"/>
         <UsageCount Value="141"/>
         <Loaded Value="True"/>
       </Unit>
