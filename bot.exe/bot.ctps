@@ -81,8 +81,8 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="698"/>
-        <CursorPos X="24" Y="717"/>
+        <TopLine Value="677"/>
+        <CursorPos X="9" Y="713"/>
         <UsageCount Value="203"/>
         <Loaded Value="True"/>
       </Unit>
@@ -91,8 +91,8 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="941"/>
-        <CursorPos X="3" Y="864"/>
+        <TopLine Value="781"/>
+        <CursorPos X="11" Y="789"/>
         <UsageCount Value="203"/>
         <Loaded Value="True"/>
       </Unit>
@@ -100,11 +100,10 @@
         <Filename Value="futuresls.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="futuresLS"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="104"/>
-        <CursorPos X="5" Y="211"/>
+        <TopLine Value="92"/>
+        <CursorPos Y="104"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit>
@@ -115,18 +114,19 @@
         <WindowIndex Value="0"/>
         <TopLine Value="38"/>
         <CursorPos X="118" Y="250"/>
-        <UsageCount Value="180"/>
+        <UsageCount Value="188"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="futureshg.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="futuresHG"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="110"/>
-        <CursorPos X="67" Y="117"/>
-        <UsageCount Value="133"/>
+        <TopLine Value="97"/>
+        <CursorPos X="184" Y="131"/>
+        <UsageCount Value="141"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -134,7 +134,7 @@
         <EditorIndex Value="-1"/>
         <WindowIndex Value="0"/>
         <CursorPos X="54" Y="4"/>
-        <UsageCount Value="200"/>
+        <UsageCount Value="199"/>
       </Unit>
       <Unit>
         <Filename Value="futureshg2.pas"/>
@@ -143,21 +143,21 @@
         <WindowIndex Value="0"/>
         <TopLine Value="48"/>
         <CursorPos X="9" Y="522"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="21"/>
       </Unit>
       <Unit>
         <Filename Value="simplymm.pas"/>
         <UnitName Value="SimplyMM"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="0"/>
-        <UsageCount Value="132"/>
+        <UsageCount Value="131"/>
       </Unit>
       <Unit>
         <Filename Value="futures_shoot.pas"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="0"/>
         <CursorPos X="6" Y="37"/>
-        <UsageCount Value="197"/>
+        <UsageCount Value="196"/>
       </Unit>
       <Unit>
         <Filename Value="futures_shootls.pas"/>
@@ -166,14 +166,14 @@
         <EditorIndex Value="-1"/>
         <WindowIndex Value="0"/>
         <CursorPos X="58" Y="94"/>
-        <UsageCount Value="16"/>
+        <UsageCount Value="15"/>
       </Unit>
       <Unit>
         <Filename Value="long_rsi_shoot.pas"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="0"/>
         <CursorPos X="21"/>
-        <UsageCount Value="16"/>
+        <UsageCount Value="15"/>
       </Unit>
       <Unit>
         <Filename Value="websoket_price.pas"/>
@@ -181,14 +181,14 @@
         <WindowIndex Value="0"/>
         <TopLine Value="32"/>
         <CursorPos X="2" Y="41"/>
-        <UsageCount Value="16"/>
+        <UsageCount Value="15"/>
       </Unit>
       <Unit>
         <Filename Value="api_gate.pas"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="0"/>
         <CursorPos X="7" Y="19"/>
-        <UsageCount Value="194"/>
+        <UsageCount Value="193"/>
       </Unit>
       <Unit>
         <Filename Value="api_bingx_futures.pas"/>
@@ -196,7 +196,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="13"/>
         <CursorPos X="20" Y="14"/>
-        <UsageCount Value="97"/>
+        <UsageCount Value="96"/>
       </Unit>
       <Unit>
         <Filename Value="api_commex.pas"/>
@@ -204,21 +204,21 @@
         <WindowIndex Value="0"/>
         <TopLine Value="154"/>
         <CursorPos X="21" Y="15"/>
-        <UsageCount Value="153"/>
+        <UsageCount Value="152"/>
       </Unit>
       <Unit>
         <Filename Value="api_commex_futures.pas"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="0"/>
         <CursorPos X="21" Y="14"/>
-        <UsageCount Value="94"/>
+        <UsageCount Value="93"/>
       </Unit>
       <Unit>
         <Filename Value="futures_v2.pas"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="0"/>
         <CursorPos X="32" Y="9"/>
-        <UsageCount Value="155"/>
+        <UsageCount Value="154"/>
       </Unit>
       <Unit>
         <Filename Value="api_huobi.pas"/>
@@ -226,7 +226,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="594"/>
         <CursorPos X="3" Y="578"/>
-        <UsageCount Value="194"/>
+        <UsageCount Value="193"/>
       </Unit>
       <Unit>
         <Filename Value="api_kucoin.pas"/>
@@ -234,7 +234,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="507"/>
         <CursorPos X="3" Y="480"/>
-        <UsageCount Value="194"/>
+        <UsageCount Value="193"/>
       </Unit>
       <Unit>
         <Filename Value="api_ftx.pas"/>
@@ -242,7 +242,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="679"/>
         <CursorPos X="29" Y="692"/>
-        <UsageCount Value="194"/>
+        <UsageCount Value="193"/>
       </Unit>
       <Unit>
         <Filename Value="binance_socket.pas"/>
@@ -250,14 +250,14 @@
         <WindowIndex Value="0"/>
         <TopLine Value="5"/>
         <CursorPos X="95" Y="46"/>
-        <UsageCount Value="154"/>
+        <UsageCount Value="153"/>
       </Unit>
       <Unit>
         <Filename Value="tradingview.pas"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="0"/>
         <CursorPos X="7" Y="362"/>
-        <UsageCount Value="135"/>
+        <UsageCount Value="134"/>
       </Unit>
       <Unit>
         <Filename Value="futuresn.pas"/>
@@ -267,7 +267,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="17"/>
         <CursorPos X="5" Y="50"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="5"/>
       </Unit>
       <Unit>
         <Filename Value="C:\codetyphon\fpcsrc\packages\fcl-json\src\fpjson.pp"/>
@@ -276,7 +276,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1621"/>
         <CursorPos X="3" Y="1636"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
       </Unit>
       <Unit>
         <Filename Value="C:\codetyphon\fpcsrc\rtl\objpas\sysutils\sysstrh.inc"/>
@@ -285,7 +285,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="154"/>
         <CursorPos X="10" Y="173"/>
-        <UsageCount Value="2"/>
+        <UsageCount Value="1"/>
       </Unit>
       <Unit>
         <Filename Value="D:\HomePC\Downloads\api_binance.pas"/>
@@ -294,7 +294,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1542"/>
         <CursorPos X="38" Y="1551"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit>
       <Unit>
         <Filename Value="C:\codetyphon\fpcsrc\packages\fcl-base\src\syncobjs.pp"/>
@@ -303,7 +303,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="165"/>
         <CursorPos X="3" Y="168"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit>
       <Unit>
         <Filename Value="cHash.pas"/>
@@ -312,7 +312,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="2789"/>
         <CursorPos X="5" Y="2813"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit>
       <Unit>
         <Filename Value="C:\codetyphon\fpcsrc\rtl\objpas\sysutils\syshelph.inc"/>
@@ -321,7 +321,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="68"/>
         <CursorPos X="38" Y="84"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit>
       <Unit>
         <Filename Value="C:\codetyphon\fpcsrc\rtl\objpas\sysutils\syshelp.inc"/>
@@ -330,7 +330,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="313"/>
         <CursorPos X="3" Y="315"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit>
       <Unit>
         <Filename Value="C:\codetyphon\fpcsrc\rtl\inc\objpash.inc"/>
@@ -339,7 +339,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="198"/>
         <CursorPos X="21" Y="217"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit>
       <Unit>
         <Filename Value="C:\codetyphon\fpcsrc\rtl\inc\objpas.inc"/>
@@ -348,7 +348,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="358"/>
         <CursorPos X="12" Y="334"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit>
       <Unit>
         <Filename Value="C:\codetyphon\typhon\components\pl_Synapse\source\httpsend.pas"/>
@@ -357,7 +357,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="241"/>
         <CursorPos X="27" Y="294"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="4"/>
       </Unit>
       <Unit>
         <Filename Value="C:\codetyphon\typhon\components\pl_Synapse\source\blcksock.pas"/>
@@ -366,14 +366,14 @@
         <WindowIndex Value="0"/>
         <TopLine Value="889"/>
         <CursorPos X="49" Y="259"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
       </Unit>
       <Unit>
         <Filename Value="C:\codetyphon\typhon\components\packages_pl\pl_Synapse\source\ssl_openssl.pas"/>
         <FRMtype Value="0"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="0"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
       </Unit>
       <Unit>
         <Filename Value="C:\codetyphon\typhon\components\synapse-master\ssl_openssl3.pas"/>
@@ -381,7 +381,7 @@
         <EditorIndex Value="-1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="199"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
       </Unit>
       <Unit>
         <Filename Value="C:\codetyphon\typhon\components\synapse-master\ssl_openssl3_lib.pas"/>
@@ -390,7 +390,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="61"/>
         <CursorPos X="22" Y="78"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
       </Unit>
       <Unit>
         <Filename Value="C:\codetyphon\typhon\components\synapse-master\httpsend.pas"/>
@@ -399,7 +399,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="285"/>
         <CursorPos X="9" Y="311"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
       </Unit>
       <Unit>
         <Filename Value="C:\codetyphon\fpcsrc\packages\rtl-objpas\src\inc\dateutil.inc"/>
@@ -408,7 +408,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="2400"/>
         <CursorPos X="10" Y="2419"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
       </Unit>
       <Unit>
         <Filename Value="C:\codetyphon\fpcsrc\packages\rtl-objpas\src\inc\dateutils.pp"/>
@@ -416,28 +416,28 @@
         <UnitName Value="DateUtils"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="0"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
       </Unit>
       <Unit>
         <Filename Value="bot.ctpr"/>
         <FRMtype Value="0"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="0"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="4"/>
       </Unit>
       <Unit>
         <Filename Value="bot.ctps"/>
         <FRMtype Value="0"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="0"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="4"/>
       </Unit>
       <Unit>
         <Filename Value="..\Launcher\Automated_Binance_Bot.ctps"/>
         <FRMtype Value="0"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="0"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="C:\codetyphon\typhon\components\synapse-master\synamisc.pas"/>
@@ -446,7 +446,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="591"/>
         <CursorPos X="60" Y="621"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="C:\codetyphon\CodeOcean\synapse-master\synamisc.pas"/>
@@ -455,7 +455,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="602"/>
         <CursorPos X="60" Y="621"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit>
       <Unit>
         <Filename Value="C:\codetyphon\typhon\components\packages_lz\lz_synapse\synamisc.pas"/>
@@ -464,86 +464,10 @@
         <WindowIndex Value="0"/>
         <TopLine Value="589"/>
         <CursorPos X="46" Y="621"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="api_binance.pas"/>
-        <Caret Line="517" Column="6" TopLine="494"/>
-      </Position>
-      <Position>
-        <Filename Value="api_binance.pas"/>
-        <Caret Line="592" Column="6" TopLine="569"/>
-      </Position>
-      <Position>
-        <Filename Value="api_binance.pas"/>
-        <Caret Line="717" Column="6" TopLine="694"/>
-      </Position>
-      <Position>
-        <Filename Value="api_binance.pas"/>
-        <Caret Line="797" Column="6" TopLine="774"/>
-      </Position>
-      <Position>
-        <Filename Value="api_binance.pas"/>
-        <Caret Line="890" Column="6" TopLine="867"/>
-      </Position>
-      <Position>
-        <Filename Value="api_binance.pas"/>
-        <Caret Line="979" Column="6" TopLine="956"/>
-      </Position>
-      <Position>
-        <Filename Value="api_bybit.pas"/>
-        <Caret Line="350" Column="6" TopLine="327"/>
-      </Position>
-      <Position>
-        <Filename Value="api_bybit.pas"/>
-        <Caret Line="444" Column="6" TopLine="421"/>
-      </Position>
-      <Position>
-        <Filename Value="api_bybit.pas"/>
-        <Caret Line="566" Column="6" TopLine="543"/>
-      </Position>
-      <Position>
-        <Filename Value="api_bybit.pas"/>
-        <Caret Line="642" Column="6" TopLine="618"/>
-      </Position>
-      <Position>
-        <Filename Value="api_bybit.pas"/>
-        <Caret Line="770" Column="6" TopLine="747"/>
-      </Position>
-      <Position>
-        <Filename Value="api_bybit.pas"/>
-        <Caret Line="854" Column="6" TopLine="831"/>
-      </Position>
-      <Position>
-        <Filename Value="api_bybit.pas"/>
-        <Caret Line="932" Column="6" TopLine="909"/>
-      </Position>
-      <Position>
-        <Filename Value="var_bot.pas"/>
-        <Caret Line="26" Column="26"/>
-      </Position>
-      <Position>
-        <Filename Value="long.pas"/>
-        <Caret Line="116" Column="87" TopLine="92"/>
-      </Position>
-      <Position>
-        <Filename Value="short.pas"/>
-        <Caret Line="116" Column="80" TopLine="92"/>
-      </Position>
-      <Position>
-        <Filename Value="futures.pas"/>
-        <Caret Line="228" Column="84" TopLine="204"/>
-      </Position>
-      <Position>
-        <Filename Value="futures.pas"/>
-        <Caret Line="250" Column="118" TopLine="226"/>
-      </Position>
-      <Position>
-        <Filename Value="futuresls.pas"/>
-        <Caret Line="127" Column="83" TopLine="103"/>
-      </Position>
       <Position>
         <Filename Value="futuresls.pas"/>
         <Caret Line="141" Column="50" TopLine="117"/>
@@ -588,6 +512,82 @@
         <Filename Value="api_binance_futures.pas"/>
         <Caret Line="717" Column="8" TopLine="682"/>
       </Position>
+      <Position>
+        <Filename Value="api_bybit_futures.pas"/>
+        <Caret Line="28" Column="28"/>
+      </Position>
+      <Position>
+        <Filename Value="api_bybit_futures.pas"/>
+        <Caret Line="817" Column="13" TopLine="782"/>
+      </Position>
+      <Position>
+        <Filename Value="api_binance_futures.pas"/>
+        <Caret Line="713" Column="9" TopLine="680"/>
+      </Position>
+      <Position>
+        <Filename Value="api_binance_futures.pas"/>
+        <Caret Line="684" Column="9" TopLine="676"/>
+      </Position>
+      <Position>
+        <Filename Value="api_binance_futures.pas"/>
+        <Caret Line="713" Column="9" TopLine="677"/>
+      </Position>
+      <Position>
+        <Filename Value="api_bybit_futures.pas"/>
+        <Caret Line="817" Column="13" TopLine="782"/>
+      </Position>
+      <Position>
+        <Filename Value="futureshg.pas"/>
+        <Caret Line="98" Column="13" TopLine="68"/>
+      </Position>
+      <Position>
+        <Filename Value="futureshg.pas"/>
+        <Caret Line="230" Column="52" TopLine="208"/>
+      </Position>
+      <Position>
+        <Filename Value="futuresls.pas"/>
+        <Caret Line="104" Column="9" TopLine="89"/>
+      </Position>
+      <Position>
+        <Filename Value="futureshg.pas"/>
+        <Caret Line="98" Column="13" TopLine="76"/>
+      </Position>
+      <Position>
+        <Filename Value="api_bybit_futures.pas"/>
+        <Caret Line="816" Column="53" TopLine="782"/>
+      </Position>
+      <Position>
+        <Filename Value="futuresls.pas"/>
+        <Caret Line="104" Column="9" TopLine="89"/>
+      </Position>
+      <Position>
+        <Filename Value="api_bybit_futures.pas"/>
+        <Caret Line="789" Column="11" TopLine="781"/>
+      </Position>
+      <Position>
+        <Filename Value="futureshg.pas"/>
+        <Caret Line="98" Column="13" TopLine="76"/>
+      </Position>
+      <Position>
+        <Filename Value="futureshg.pas"/>
+        <Caret Line="406" Column="5" TopLine="326"/>
+      </Position>
+      <Position>
+        <Filename Value="futureshg.pas"/>
+        <Caret Line="18" Column="30"/>
+      </Position>
+      <Position>
+        <Filename Value="futureshg.pas"/>
+        <Caret Line="135" Column="19" TopLine="124"/>
+      </Position>
+      <Position>
+        <Filename Value="futureshg.pas"/>
+        <Caret Line="388" Column="9" TopLine="364"/>
+      </Position>
+      <Position>
+        <Filename Value="futureshg.pas"/>
+        <Caret Line="459" Column="12" TopLine="432"/>
+      </Position>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
@@ -622,14 +622,14 @@
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="api_bybit_futures.pas"/>
-        <Line Value="972"/>
+        <Line Value="971"/>
       </Item>
       <Item>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="api_bybit_futures.pas"/>
-        <Line Value="962"/>
+        <Line Value="961"/>
       </Item>
     </BreakPoints>
   </Debugging>

@@ -16,7 +16,6 @@ uses
 procedure WorkFuturesHG;
 procedure OrderCreateLong();
 procedure OrderCreateShort();
-procedure OrderCreateSL();
 procedure OrderCreateClosePosition;
 procedure CheckOrderOpenPosition;
 procedure CheckOrderClosePosition;
@@ -89,11 +88,27 @@ begin
           until GetPositionLSBybit;
       end;
 
-      // CLOSE POSITION LONG !!!!!!!
-      if ((POSITION_VOLUME_LONG <> 0) and (CLOSE_POSITION_ORDER.Count = 0)) or ((LONG_CLOSE_VOLUME <> POSITION_NATIONAL_LONG) and (CLOSE_POSITION_ORDER.Count > 0)) or ((PROFIT <> NEW_PROFIT) and (CLOSE_POSITION_ORDER.Count > 0)) then
-        OrderCreateClosePosition;
+      // Close All
+      if (PNL_SUM_PERCENT > (POSITION_VOLUME_LONG + POSITION_VOLUME_SHORT) * PROFIT / 100) then
+      begin
+        TextColor(14);
+        WriteLn(' UNREALIZEDPROFIT > SET PROFIT >>> CLOSE POSITIONS');
 
-      //OPEN SHORT !!!!!!!!!!!!!
+        WriteLn(' CLOSE LONG >>>');
+        STRATEG := 'L';
+        case EXCHANGE of
+          'BINANCE_F_LS': CreateOrderBinanceFutures('LONG', 'SELL', 'MARKET', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_LONG, fs), '0');
+          'BYBIT_F_LS': CreateOrderBybitFutures('true', 'Sell', 'Market', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_LONG, fs), '0');
+        end;
+        WriteLn(' CLOSE SHORT >>>');
+        STRATEG := 'S';
+        case EXCHANGE of
+          'BINANCE_F_LS': CreateOrderBinanceFutures('SHORT', 'BUY', 'MARKET', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_SHORT, fs), '0');
+          'BYBIT_F_LS': CreateOrderBybitFutures('true', 'Buy', 'Market', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_SHORT, fs), '0');
+        end;
+      end;
+
+      // Open Short
       if (POSITION_VOLUME_LONG > 0) then
         if (PNL_SUM_PERCENT < -ABS(STOPLOSS)) then
           if (PNL_SHORT > PNL_LONG) then
@@ -102,24 +117,20 @@ begin
                 if (CutDec((POSITION_NATIONAL_LONG / 3) - POSITION_NATIONAL_SHORT, DEC_MIN_VAL_2) > MIN_VAL_2) then
                   OrderCreateShort;
 
-      // скидываем шорт в плюсе
+      // Close 1/2 Short
       if (POSITION_VOLUME_SHORT > 0) then
         if (POSITION_VOLUME_LONG > 0) then
           if ((PNL_SHORT > PNL_LONG) and (PNL_SHORT > 0)) then
             if (PRICE_POSITION_SHORT > PRICE_POSITION_LONG) then
               if (PRICE_POSITION_SHORT > BIDS) then
-              begin
-                STRATEG := 'S';
-                case EXCHANGE of
-                  'BINANCE_F_HG': CreateOrderBinanceFutures('SHORT', 'BUY', 'MARKET', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_SHORT, fs), '0');
-                  'BYBIT_F_HG': CreateOrderBybitFutures('true', 'Buy', 'Market', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_SHORT, fs), '0');
+                if (CutDec((POSITION_NATIONAL_SHORT - PRICE_POSITION_LONG), DEC_MIN_VAL_2) > MIN_VAL_2) then
+                begin
+                  STRATEG := 'S';
+                  case EXCHANGE of
+                    'BINANCE_F_HG': CreateOrderBinanceFutures('SHORT', 'BUY', 'MARKET', FloatToStr(0, fs), FloatToStr(CutDec((POSITION_NATIONAL_SHORT - PRICE_POSITION_LONG), DEC_MIN_VAL_2), fs), '0');
+                    'BYBIT_F_HG': CreateOrderBybitFutures('true', 'Buy', 'Market', FloatToStr(0, fs), FloatToStr(CutDec((POSITION_NATIONAL_SHORT - PRICE_POSITION_LONG), DEC_MIN_VAL_2), fs), '0');
+                  end;
                 end;
-              end;
-
-      // sl short
-      if (POSITION_VOLUME_SHORT > 0) then
-        if (SL_ORDER_SHORT.Count = 0) then
-          OrderCreateSL;
 
       // RSI
       if (FIRST_RSI_ORDER = True) or (NEXT_ORDER_RSI = True) then
@@ -132,6 +143,7 @@ begin
             until GetRsiBybitFuturesRSIShoot(CB_TIME_FRAME);
         end;
 
+      // Price Market
       case EXCHANGE of
         'BINANCE_F_HG':
           repeat
@@ -141,7 +153,7 @@ begin
           until MarketBybitFutures;
       end;
 
-      // Перезапуск лонг ордеров
+      // Reload Long Orders
       if ((OPEN_POSITION_ORDER.Count > 0) and (CLOSE_POSITION_ORDER.Count = 0) and (POSITION_VOLUME_LONG = 0) and (BIDS >= PRICE_RELOAD)) or ((OPEN_POSITION_ORDER.Count > 0) and
         (CLOSE_POSITION_ORDER.Count = 0) and (POSITION_VOLUME_LONG = 0) and (LONG_CLOSE_VOLUME <> POSITION_VOLUME_LONG)) then
       begin
@@ -164,7 +176,7 @@ begin
         LONG_CLOSE_VOLUME := 0;
       end;
 
-      // Остановка бота
+      // Bot Stoped
       if ((STOP = 1) and (POSITION_VOLUME_LONG = 0)) then
       begin
         TextColor(4);
@@ -186,7 +198,7 @@ begin
         Break;
       end;
 
-      // OPEN LONG
+      // Open Long
       if (OPEN_POSITION_ORDER.Count = 0) then
         if ((POSITION_VOLUME_LONG = 0) and (STOP = 0)) then
         begin
@@ -226,8 +238,7 @@ begin
       WriteLn(' AVG PRICE POSITION SHORT : ' + FloatToStr(PRICE_POSITION_SHORT, fs));
       TextColor(15);
       WriteLn('');
-      WriteLn(' > PNL SUM : ' + FloatToStr(PNL_LONG + PNL_SHORT, fs));
-      WriteLn(' > PNL SUM PERCENT : ' + FloatToStr(PNL_SUM_PERCENT, fs));
+      WriteLn(' > UNREALIZEDPROFIT : ' + FloatToStr(PNL_SUM_PERCENT, fs));
       WriteLn('-----------------------------------------------');
       Writeln('');
       //==============
@@ -350,8 +361,6 @@ begin
 end;
 
 procedure OrderCreateShort();
-var
-  TMP: string;
 begin
   try
     WriteLn('');
@@ -362,8 +371,8 @@ begin
 
     STRATEG := 'S';
     case EXCHANGE of
-      'BINANCE_F_HG': TMP := CreateOrderBinanceFutures('SHORT', 'SELL', 'MARKET', FloatToStr(0, fs), FloatToStr(AMMOUNT_ORDER_SHORT, fs), '0');
-      'BYBIT_F_HG': TMP := CreateOrderBybitFutures('false', 'Sell', 'Market', FloatToStr(0, fs), FloatToStr(AMMOUNT_ORDER_SHORT, fs), '0');
+      'BINANCE_F_HG': CreateOrderBinanceFutures('SHORT', 'SELL', 'MARKET', FloatToStr(0, fs), FloatToStr(AMMOUNT_ORDER_SHORT, fs), '0');
+      'BYBIT_F_HG': CreateOrderBybitFutures('false', 'Sell', 'Market', FloatToStr(0, fs), FloatToStr(AMMOUNT_ORDER_SHORT, fs), '0');
     end;
 
     case EXCHANGE of
@@ -374,89 +383,11 @@ begin
         repeat
         until GetPositionLSBybit;
     end;
-
-    if (TMP <> 'FALSE') then
-      OrderCreateSL();
   except
     on E: Exception do
     begin
       TextColor(12);
       WriteLn(' ! ERROR > ' + E.Message + ' OrderCreateShort');
-      TextColor(15);
-    end;
-  end;
-end;
-
-procedure OrderCreateSL();
-var
-  TMP: string;
-  p: double;
-begin
-  try
-    if (SL_ORDER_SHORT.Count > 0) then
-    begin
-      WriteLn(' - CANCEL ORDER STOPLOOS SHORT');
-      case EXCHANGE of
-        'BINANCE_F_HG':
-          if CancelOrderBinanceFutures(SL_ORDER_SHORT[0]) then
-            SL_ORDER_SHORT.Delete(0);
-        'BYBIT_F_HG':
-          if CancelOrderBybitFutures(SL_ORDER_SHORT[0]) then
-            SL_ORDER_SHORT.Delete(0);
-      end;
-    end;
-
-    if PRICE_POSITION_LONG > PRICE_POSITION_SHORT then
-      p := CutDec(PRICE_POSITION_LONG - PRICE_POSITION_SHORT, DEC_PRICE);
-
-    if PRICE_POSITION_SHORT > PRICE_POSITION_LONG then
-      p := PRICE_POSITION_LONG;
-
-    if ((POSITION_VOLUME_SHORT > 0) and (SL_ORDER_SHORT.Count = 0)) then
-    begin
-      WriteLn('');
-      TextColor(10);
-      WriteLn(' ++++ ORDER CREATE STOPLOOS SHORT ++++');
-      STRATEG := 'S';
-      case EXCHANGE of
-        'BINANCE_F_HG': TMP := CreateOrderBinanceFutures('SHORT', 'BUY', 'STOP_MARKET', FloatToStr(p, fs), FloatToStr(POSITION_NATIONAL_SHORT, fs), FloatToStr(CutDec(PRICE_POSITION_LONG, DEC_PRICE), fs));
-        'BYBIT_F_HG': TMP := CreateOrderStopBybitFutures('false', 'Buy', 'Market', FloatToStr(p, fs), FloatToStr(POSITION_NATIONAL_SHORT, fs), FloatToStr(PRICE_POSITION_LONG, fs));
-      end;
-
-
-      if (TMP <> 'FALSE') then
-      begin
-        TextColor(2);
-        WriteLn(' + ORDER STOPLOOS SHORT CREATE ID : ' + TMP);
-        TextColor(15);
-        STRATEG := 'L';
-        case EXCHANGE of
-          'BINANCE_F_HG':
-          begin
-            repeat
-            until LoadAllOrdersBinanceFutures;
-          end;
-          'BYBIT_F_HG':
-          begin
-            repeat
-            until LoadAllOrdersBybitFutures;
-          end;
-        end;
-
-        Save;
-      end
-      else
-      begin
-        TextColor(12);
-        WriteLn(' - FAIL ORDER STOPLOOS SHORT CREATE');
-        TextColor(15);
-      end;
-    end;
-  except
-    on E: Exception do
-    begin
-      TextColor(12);
-      WriteLn(' ! ERROR > ' + E.Message + ' OrderCreateSL');
       TextColor(15);
     end;
   end;
@@ -523,7 +454,6 @@ begin
       NEW_PROFIT := PROFIT;
       LONG_CLOSE_VOLUME := POSITION_NATIONAL_LONG;
       Save;
-      if PRICE_POSITION_SHORT > 0 then OrderCreateSL;
     end
     else
     begin

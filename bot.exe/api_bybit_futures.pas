@@ -813,8 +813,7 @@ begin
 
           FreeAndNil(jD2);
 
-          if (((PNL_LONG <> 0) or (PNL_SHORT <> 0)) and (POSITION_VOLUME_LONG <> 0)) then
-            PNL_SUM_PERCENT := ((PNL_LONG + PNL_SHORT) / POSITION_VOLUME_LONG) * 100 * CREDIT;
+          PNL_SUM_PERCENT := (PNL_LONG + PNL_SHORT);
         end;
 
         if Assigned(jD.FindPath('retMsg')) then

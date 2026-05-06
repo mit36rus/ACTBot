@@ -120,28 +120,6 @@ begin
       end;
     end;
 
-    // close position
-    if ((PNL_LONG > 0) and (SHOOT_SHORT = True)) then
-    begin
-      WriteLn(' CLOSE LONG >>>');
-      STRATEG := 'L';
-      case EXCHANGE of
-        'BINANCE_F_LS': CreateOrderBinanceFutures('LONG', 'SELL', 'MARKET', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_LONG, fs), '0');
-        'BYBIT_F_LS': CreateOrderBybitFutures('true', 'Sell', 'Market', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_LONG, fs), '0');
-      end;
-    end;
-
-    if ((PNL_SHORT > 0) and (SHOOT_LONG = True)) then
-    begin
-      WriteLn(' CLOSE SHORT >>>');
-      STRATEG := 'S';
-      case EXCHANGE of
-        'BINANCE_F_LS': CreateOrderBinanceFutures('SHORT', 'BUY', 'MARKET', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_SHORT, fs), '0');
-        'BYBIT_F_LS': CreateOrderBybitFutures('true', 'Buy', 'Market', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_SHORT, fs), '0');
-      end;
-    end;
-    //===============
-
     // Остановка бота
     if ((STOP = 1) and (POSITION_VOLUME_LONG = 0) and (POSITION_VOLUME_SHORT = 0)) then
     begin
