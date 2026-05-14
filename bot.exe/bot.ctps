@@ -21,8 +21,8 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="10"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="125"/>
-        <CursorPos X="53" Y="137"/>
+        <TopLine Value="184"/>
+        <CursorPos X="23" Y="199"/>
         <UsageCount Value="203"/>
         <Loaded Value="True"/>
       </Unit>
@@ -31,8 +31,8 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="126"/>
-        <CursorPos X="18" Y="159"/>
+        <TopLine Value="108"/>
+        <CursorPos X="11" Y="128"/>
         <UsageCount Value="203"/>
         <Loaded Value="True"/>
       </Unit>
@@ -81,8 +81,8 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="677"/>
-        <CursorPos X="9" Y="713"/>
+        <TopLine Value="963"/>
+        <CursorPos X="3" Y="947"/>
         <UsageCount Value="203"/>
         <Loaded Value="True"/>
       </Unit>
@@ -102,18 +102,19 @@
         <UnitName Value="futuresLS"/>
         <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="109"/>
-        <CursorPos Y="104"/>
+        <TopLine Value="7"/>
+        <CursorPos X="124" Y="104"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="futures.pas"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="9"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="38"/>
-        <CursorPos X="118" Y="250"/>
+        <TopLine Value="183"/>
+        <CursorPos X="9" Y="113"/>
         <UsageCount Value="188"/>
         <Loaded Value="True"/>
       </Unit>
@@ -121,11 +122,10 @@
         <Filename Value="futureshg.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="futuresHG"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="164"/>
-        <CursorPos X="79" Y="180"/>
+        <TopLine Value="138"/>
+        <CursorPos X="170" Y="138"/>
         <UsageCount Value="141"/>
         <Loaded Value="True"/>
       </Unit>
@@ -469,38 +469,6 @@
     </Units>
     <JumpHistory HistoryIndex="29">
       <Position>
-        <Filename Value="futuresls.pas"/>
-        <Caret Line="141" Column="50" TopLine="117"/>
-      </Position>
-      <Position>
-        <Filename Value="futuresls.pas"/>
-        <Caret Line="157" Column="51" TopLine="133"/>
-      </Position>
-      <Position>
-        <Filename Value="futureshg.pas"/>
-        <Caret Line="170" Column="53" TopLine="146"/>
-      </Position>
-      <Position>
-        <Filename Value="load_settings.pas"/>
-        <Caret Line="12" Column="10"/>
-      </Position>
-      <Position>
-        <Filename Value="bot.ppr"/>
-        <Caret Line="85" Column="16" TopLine="60"/>
-      </Position>
-      <Position>
-        <Filename Value="load_settings.pas"/>
-        <Caret Line="85" Column="28" TopLine="63"/>
-      </Position>
-      <Position>
-        <Filename Value="api_binance_futures.pas"/>
-        <Caret Line="28" Column="38"/>
-      </Position>
-      <Position>
-        <Filename Value="api_bybit_futures.pas"/>
-        <Caret Line="29" Column="36"/>
-      </Position>
-      <Position>
         <Filename Value="api_binance.pas"/>
         <Caret Line="21" Column="31"/>
       </Position>
@@ -587,6 +555,38 @@
       <Position>
         <Filename Value="futureshg.pas"/>
         <Caret Line="459" Column="12" TopLine="432"/>
+      </Position>
+      <Position>
+        <Filename Value="futureshg.pas"/>
+        <Caret Line="116" TopLine="129"/>
+      </Position>
+      <Position>
+        <Filename Value="futureshg.pas"/>
+        <Caret Line="120" Column="41" TopLine="94"/>
+      </Position>
+      <Position>
+        <Filename Value="futuresls.pas"/>
+        <Caret Line="104" Column="124" TopLine="4"/>
+      </Position>
+      <Position>
+        <Filename Value="futures.pas"/>
+        <Caret Line="118" Column="10" TopLine="82"/>
+      </Position>
+      <Position>
+        <Filename Value="futures.pas"/>
+        <Caret Line="121" Column="41" TopLine="91"/>
+      </Position>
+      <Position>
+        <Filename Value="futures.pas"/>
+        <Caret Line="16" Column="11" TopLine="193"/>
+      </Position>
+      <Position>
+        <Filename Value="futures.pas"/>
+        <Caret Line="121" Column="41" TopLine="85"/>
+      </Position>
+      <Position>
+        <Filename Value="api_binance_futures.pas"/>
+        <Caret Line="30" Column="35" TopLine="2"/>
       </Position>
     </JumpHistory>
     <RunParams>

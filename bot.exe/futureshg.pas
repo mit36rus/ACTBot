@@ -76,8 +76,8 @@ begin
     begin
       LoadSettings;
 
-      if (OPEN_POSITION_ORDER.Count > 0) then CheckOrderOpenPosition;
-      if (CLOSE_POSITION_ORDER.Count > 0) then CheckOrderClosePosition;
+      //if (OPEN_POSITION_ORDER.Count > 0) then CheckOrderOpenPosition;
+      //if (CLOSE_POSITION_ORDER.Count > 0) then CheckOrderClosePosition;
 
       case EXCHANGE of
         'BINANCE_F_HG':
@@ -94,28 +94,35 @@ begin
         TextColor(14);
         WriteLn(' UNREALIZEDPROFIT > SET PROFIT >>> CLOSE POSITIONS');
 
-        WriteLn(' CLOSE LONG >>>');
-        STRATEG := 'L';
-        case EXCHANGE of
-          'BINANCE_F_LS': CreateOrderBinanceFutures('LONG', 'SELL', 'MARKET', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_LONG, fs), '0');
-          'BYBIT_F_LS': CreateOrderBybitFutures('true', 'Sell', 'Market', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_LONG, fs), '0');
+        if POSITION_NATIONAL_LONG <> 0 then
+        begin
+          WriteLn(' CLOSE LONG >>>');
+          STRATEG := 'L';
+          case EXCHANGE of
+            'BINANCE_F_HG': CreateOrderBinanceFutures('LONG', 'SELL', 'MARKET', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_LONG, fs), '0');
+            'BYBIT_F_HG': CreateOrderBybitFutures('true', 'Sell', 'Market', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_LONG, fs), '0');
+          end;
         end;
-        WriteLn(' CLOSE SHORT >>>');
-        STRATEG := 'S';
-        case EXCHANGE of
-          'BINANCE_F_LS': CreateOrderBinanceFutures('SHORT', 'BUY', 'MARKET', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_SHORT, fs), '0');
-          'BYBIT_F_LS': CreateOrderBybitFutures('true', 'Buy', 'Market', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_SHORT, fs), '0');
+
+        if POSITION_NATIONAL_SHORT <> 0 then
+        begin
+          WriteLn(' CLOSE SHORT >>>');
+          STRATEG := 'S';
+          case EXCHANGE of
+            'BINANCE_F_HG': CreateOrderBinanceFutures('SHORT', 'BUY', 'MARKET', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_SHORT, fs), '0');
+            'BYBIT_F_HG': CreateOrderBybitFutures('true', 'Buy', 'Market', FloatToStr(0, fs), FloatToStr(POSITION_NATIONAL_SHORT, fs), '0');
+          end;
         end;
+
       end;
 
       // Open Short
       if (POSITION_VOLUME_LONG > 0) then
-        if (PNL_SUM_PERCENT < -ABS(STOPLOSS)) then
-          if (PNL_SHORT > PNL_LONG) then
-            if (CutDec(POSITION_VOLUME_LONG / 3, DEC_MIN_VAL_1) > POSITION_VOLUME_SHORT) then
-              if (CutDec((POSITION_VOLUME_LONG / 3) - POSITION_VOLUME_SHORT, DEC_MIN_VAL_1) > MIN_VAL_1) then
-                if (CutDec((POSITION_NATIONAL_LONG / 3) - POSITION_NATIONAL_SHORT, DEC_MIN_VAL_2) > MIN_VAL_2) then
-                  OrderCreateShort;
+        if (PNL_SHORT > PNL_LONG) then
+          if (CutDec(POSITION_VOLUME_LONG / 3, DEC_MIN_VAL_1) > POSITION_VOLUME_SHORT) then
+            if (CutDec((POSITION_VOLUME_LONG / 3) - POSITION_VOLUME_SHORT, DEC_MIN_VAL_1) > MIN_VAL_1) then
+              if (CutDec((POSITION_NATIONAL_LONG / 3) - POSITION_NATIONAL_SHORT, DEC_MIN_VAL_2) > MIN_VAL_2) then
+                OrderCreateShort;
 
       // Close 1/2 Short
       if (POSITION_VOLUME_SHORT > 0) then
@@ -123,12 +130,12 @@ begin
           if ((PNL_SHORT > PNL_LONG) and (PNL_SHORT > 0)) then
             if (PRICE_POSITION_SHORT > PRICE_POSITION_LONG) then
               if (PRICE_POSITION_SHORT > BIDS) then
-                if (CutDec((POSITION_NATIONAL_SHORT - PRICE_POSITION_LONG), DEC_MIN_VAL_2) > MIN_VAL_2) then
+                if (CutDec((POSITION_NATIONAL_SHORT - POSITION_NATIONAL_LONG), DEC_MIN_VAL_2) > MIN_VAL_2) then
                 begin
                   STRATEG := 'S';
                   case EXCHANGE of
-                    'BINANCE_F_HG': CreateOrderBinanceFutures('SHORT', 'BUY', 'MARKET', FloatToStr(0, fs), FloatToStr(CutDec((POSITION_NATIONAL_SHORT - PRICE_POSITION_LONG), DEC_MIN_VAL_2), fs), '0');
-                    'BYBIT_F_HG': CreateOrderBybitFutures('true', 'Buy', 'Market', FloatToStr(0, fs), FloatToStr(CutDec((POSITION_NATIONAL_SHORT - PRICE_POSITION_LONG), DEC_MIN_VAL_2), fs), '0');
+                    'BINANCE_F_HG': CreateOrderBinanceFutures('SHORT', 'BUY', 'MARKET', FloatToStr(0, fs), FloatToStr(CutDec((POSITION_NATIONAL_SHORT - POSITION_NATIONAL_LONG), DEC_MIN_VAL_2), fs), '0');
+                    'BYBIT_F_HG': CreateOrderBybitFutures('true', 'Buy', 'Market', FloatToStr(0, fs), FloatToStr(CutDec((POSITION_NATIONAL_SHORT - POSITION_NATIONAL_LONG), DEC_MIN_VAL_2), fs), '0');
                   end;
                 end;
 
